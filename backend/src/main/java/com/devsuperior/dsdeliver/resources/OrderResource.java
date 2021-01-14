@@ -22,18 +22,15 @@ import com.devsuperior.dsdeliver.services.OrderService;
 @RestController
 @RequestMapping(value = "/orders")
 public class OrderResource {
-
-	//@Autowired
-	//private ProductService service;
 	
 	@Autowired
 	private OrderService service;
 	
-//	@GetMapping
-//	public ResponseEntity<List<OrderDTO>> findAll(){
-//		List<OrderDTO> list = service.findAll();
-//		return ResponseEntity.ok().body(list);
-//	} 
+	@GetMapping
+	public ResponseEntity<List<OrderDTO>> findOrdersWithProducts(){
+		List<OrderDTO> list = service.findOrdersWithProducts();
+		return ResponseEntity.ok().body(list);
+	} 
 	
 	@PostMapping
 	public ResponseEntity<OrderDTO> insert(@RequestBody OrderDTO dto){
